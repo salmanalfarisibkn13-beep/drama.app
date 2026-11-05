@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0f0f1a" />
+  <title>DramaKu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+
+  <!-- ===== HOME ===== -->
+  <div id="home-screen" class="screen active">
+    <header class="app-bar"><h1>🎬 DramaKu</h1></header>
+    <div class="banner" id="banner" onclick="openDetail(0)">
+      <span class="badge">🔥 TRENDING</span>
+      <h2 id="banner-title">-</h2>
+      <p id="banner-genre"></p>
+    </div>
+    <h3 class="section-title">▶ Semua Drama</h3>
+    <div class="grid" id="drama-grid"></div>
+  </div>
+
+  <!-- ===== DETAIL ===== -->
+  <div id="detail-screen" class="screen">
+    <button class="back-btn" onclick="showHome()">← Kembali</button>
+    <div class="poster-wrap">
+      <img id="detail-poster" src="" alt="poster" />
+      <div class="poster-fade"></div>
+    </div>
+    <div class="detail-info">
+      <h2 id="detail-title"></h2>
+      <div class="meta">
+        <span>⭐ <b id="detail-rating"></b></span>
+        <span id="detail-year"></span>
+        <span class="genre-tag" id="detail-genre"></span>
+      </div>
+      <h4>Sinopsis</h4>
+      <p id="detail-desc"></p>
+      <h4 style="margin-top:16px;">📺 Daftar Episode</h4>
+      <div class="episode-list" id="episode-list"></div>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO ===== -->
+  <div id="video-screen" class="screen video-screen">
+    <div class="video-header">
+      <button class="back-btn" onclick="closeVideo()">←</button>
+      <span id="video-title"></span>
+    </div>
+
+    <!-- Area video dengan wrapper untuk rotate & spin -->
+    <div class="video-container">
+      <div id="video-rotate-wrapper">
+        <div id="video-spin-wrapper">
+          <div id="yt-player"></div>
+        </div>
+      </div>
+      <div class="loading-spinner" id="loading-spinner">⏳ Memuat video...</div>
+    </div>
+
+    <!-- Kontrol -->
+    <div class="video-actions">
+      <button onclick="prevEpisode()">⏮ Sebelum</button>
+      <button onclick="nextEpisode()">Lanjut ⏭</button>
+    </div>
+    <div class="video-actions">
+      <button id="btn-loop" onclick="toggleLoop()">🔁 Loop: OFF</button>
+      <button onclick="rotateVideo()">🔄 Putar</button>
+      <button id="btn-spin" onclick="toggleSpin()">🌀 Spin: OFF</button>
+      <button onclick="toggleFullscreen()">⛶ Full</button>
+    </div>
+
+    <div class="video-info" id="video-info"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
